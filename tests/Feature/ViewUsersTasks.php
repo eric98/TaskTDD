@@ -31,7 +31,8 @@ class ViewUsersTasks extends TestCase
         $response->assertSuccessful();
         $response->assertViewIs('user_tasks');
         $response->assertViewHas('tasks', $user->tasks);
-
+//        $response->assertViewHas('user', $user);
+        
         $response->assertSeeText($user->name, ' Tasks: ');
 
         foreach ($tasks as $task) {

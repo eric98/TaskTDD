@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class UserTasksController extends Controller
 {
-    public function index($id)
+    public function index(User $user)
     {
-        $user = User::findOrFail($id);
-//        $tasks = Task::all();
         $tasks = Task::where('user_id',$user->id)->get();
-//        dd($tasks);
         return view('user_tasks', ['tasks'=>$tasks,'user'=>$user]);
     }
 }
